@@ -2,7 +2,6 @@ import locale
 locale.setlocale(locale.LC_ALL, "ru")
 
 import codecs
-# fileObj = codecs.open( "someFilePath", "r", "utf_8_sig" )
 
 def main():
     try:
@@ -20,7 +19,7 @@ def main():
             break
         if ch == '<':
             ch = lj.read(1)
-            if ch == 'l':    # lj-cut or lj-embed
+            if ch == 'l':    # removing lj-cut or lj-embed
                 while lj.read(1) != '>':
                     continue
                 continue
@@ -34,7 +33,7 @@ def main():
                     d2.write('</')
             elif ch == 'i':
                 ch = lj.read(1)
-                if ch == 'm':    # img
+                if ch == 'm':    # changing img
                     while lj.read(1) != '>':
                         continue
                     d2.write('<img src="' + str(i) + '" title="">')
@@ -42,7 +41,7 @@ def main():
                     continue
                 else:
                     d2.write('<i')
-            elif ch == 'a':
+            elif ch == 'a':    # changing link to user page
                 st = lj.read(34)
                 if st == ' href="https://www.drive2.ru/users':
                     while lj.read(1) != '>':

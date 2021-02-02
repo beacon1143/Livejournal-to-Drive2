@@ -1,0 +1,24 @@
+Какой-то текст.
+<lj-cut>
+Снова текст.
+
+Первое фото:
+
+<img src="https://first_image.jpg" alt="" width="1000" />
+
+Ссылка на страницу пользователя drive2.ru: <a href="https://www.drive2.ru/users/beacon1143">Beacon1143</a>
+
+Опять текст.
+
+Второе фото:
+
+<img src="https://second_image.jpg" alt="" width="1000" />
+
+Видео:
+
+<lj-embed id="221">
+<iframe src="https://www.youtube.com/embed/II4Nq6yt9tw?wmode=opaque" width="1000" height="560" frameborder="0" allowfullscreen="allowfullscreen" data-link="https://youtube.com/watch?v=II4Nq6yt9tw"></iframe>
+</lj-embed>
+
+Ссылка не на страницу пользователя drive2.ru: <a href="https://www.drive2.ru/b/499482569927033099/">Путешествие из Москвы в Санкт-Петербург на электричках</a>
+</lj-cut>

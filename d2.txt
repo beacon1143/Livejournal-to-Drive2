@@ -1,0 +1,23 @@
+﻿Какой-то текст.
+
+Снова текст.
+
+Первое фото:
+
+<img src="1" title="">
+
+Ссылка на страницу пользователя drive2.ru: <user name="Beacon1143">
+
+Опять текст.
+
+Второе фото:
+
+<img src="2" title="">
+
+Видео:
+
+
+<iframe src="https://www.youtube.com/embed/II4Nq6yt9tw?wmode=opaque" width="1000" height="560" frameborder="0" allowfullscreen="allowfullscreen" data-link="https://youtube.com/watch?v=II4Nq6yt9tw"></iframe>
+
+
+Ссылка не на страницу пользователя drive2.ru: <a href="https://www.drive2.ru/b/499482569927033099/">Путешествие из Москвы в Санкт-Петербург на электричках</a>
