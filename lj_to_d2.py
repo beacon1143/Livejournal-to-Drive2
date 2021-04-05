@@ -32,7 +32,7 @@ def main():
                 else:
                     print('Unexpectedly there is something other than lj-cut and lj-embed')
                     break
-            elif ch == '/':
+            elif ch == '/':    # continue removing lj-cut or lj-embed
                 ch = lj.read(1)
                 if ch == 'l':
                     st = lj.read(3)
@@ -57,6 +57,27 @@ def main():
                     d2.write('<img src="' + str(imageNo) + '" title="">')
                     imageNo = imageNo + 1
                     continue
+                elif ch == 'f':    # changing iframe (video only)
+                    nQuotes = 0
+                    while nQuotes < 10:
+                        if lj.read(1) == '"':
+                            nQuotes = nQuotes + 1
+                    st = lj.read(12)
+                    if st == ' data-link="':
+                        while True:
+                            ch = lj.read(1)
+                            if ch != '"':
+                                d2.write(str(ch))
+                            else:
+                                break
+                        while lj.read(1) != '>':
+                            continue
+                        while lj.read(1) != '>':    # removing </iframe> in the end
+                            continue
+                        continue
+                    else:
+                        print('It\'s not video!')
+                        break
                 else:
                     d2.write('<i')
             elif ch == 'a':    # changing link to user page
