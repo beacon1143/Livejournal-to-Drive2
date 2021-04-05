@@ -11,7 +11,7 @@ def main():
         exit(0)
     d2 = codecs.open('d2.txt', 'w', 'utf_8_sig')
     
-    i = 1
+    imageNo = 1
     
     while True:
         ch = lj.read(1)
@@ -36,8 +36,8 @@ def main():
                 if ch == 'm':    # changing img
                     while lj.read(1) != '>':
                         continue
-                    d2.write('<img src="' + str(i) + '" title="">')
-                    i = i + 1
+                    d2.write('<img src="' + str(imageNo) + '" title="">')
+                    imageNo = imageNo + 1
                     continue
                 else:
                     d2.write('<i')
