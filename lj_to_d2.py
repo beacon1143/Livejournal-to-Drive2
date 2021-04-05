@@ -20,15 +20,33 @@ def main():
         if ch == '<':
             ch = lj.read(1)
             if ch == 'l':    # removing lj-cut or lj-embed
-                while lj.read(1) != '>':
-                    continue
-                continue
-            elif ch == '/':
-                ch = lj.read(1)
-                if ch == 'l':
+                st = lj.read(3)
+                if st == 'j-c':
                     while lj.read(1) != '>':
                         continue
                     continue
+                elif st == 'j-e':
+                    while lj.read(1) != '\n':
+                        continue
+                    continue
+                else:
+                    print('Unexpectedly there is something other than lj-cut and lj-embed')
+                    break
+            elif ch == '/':
+                ch = lj.read(1)
+                if ch == 'l':
+                    st = lj.read(3)
+                    if st == 'j-c':
+                        while lj.read(1) != '>':
+                            continue
+                        continue
+                    elif st == 'j-e':
+                        while lj.read(1) != '\n':
+                            continue
+                        continue
+                    else:
+                        print('Unexpectedly there is something other than lj-cut and lj-embed')
+                        break
                 else:
                     d2.write('</')
             elif ch == 'i':
@@ -57,6 +75,7 @@ def main():
                         continue
                     else:
                         print('Unexpected error occured!')
+                        break
                 else:
                     d2.write('<a' + st)
                     continue
