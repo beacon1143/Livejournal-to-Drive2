@@ -19,15 +19,28 @@ def main():
             break
         if ch == '<':
             ch = lj.read(1)
-            if ch == 'l':    # removing lj-cut or lj-embed
-                st = lj.read(3)
+            if ch == 'l':    # removing lj-cut or lj-embed and changing lj user
+                st = lj.read(3)                  # lj-cut
                 if st == 'j-c':
                     while lj.read(1) != '>':
                         continue
                     continue
-                elif st == 'j-e':
+                elif st == 'j-e':                # lj-embed
                     while lj.read(1) != '\n':
                         continue
+                    continue
+                elif st == 'j u':                # lj user
+                    while lj.read(1) != '"':
+                        continue
+                    st = ''
+                    while True:
+                        ch = lj.read(1)
+                        if ch == '"':
+                            break
+                        st += ch
+                    while lj.read(1) != '>':
+                        continue
+                    d2.write('<a href="https://' + st + '.livejournal.com">' + st + '</a>')
                     continue
                 else:
                     print('Unexpectedly there is something other than lj-cut and lj-embed')
