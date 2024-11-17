@@ -72,7 +72,7 @@ def main():
                     continue
                 elif ch == 'f':    # changing iframe (video only)
                     nQuotes = 0
-                    while nQuotes < 10:
+                    while nQuotes < 12:
                         if lj.read(1) == '"':
                             nQuotes = nQuotes + 1
                     st = lj.read(12)
